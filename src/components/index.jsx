@@ -43,7 +43,7 @@ const styles = () => ({
   arrow: {
     position: 'relative',
     top: '50%',
-    marginTop: -1,
+    marginTop: 4,
     left: 29,
     width: 0,
     height: 0,
