@@ -606,6 +606,7 @@ class MaterialUiPhoneNumber extends React.Component {
 
     const inputFlagClasses = `flag ${selectedCountry.iso2}`;
     const flagBackground = "url('data:image/png;base64," + countryFlagData.flagDataForIso[selectedCountry.iso2];
+    const isSelected = (country) => Boolean(selectedCountry && selectedCountry.dialCode === country.dialCode);
 
     const dropdownProps = disableDropdown ? {} : {
       startAdornment: (
