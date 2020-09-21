@@ -622,7 +622,7 @@ class MaterialUiPhoneNumber extends React.Component {
                   onClose={() => this.setState({anchorEl: null})}
                   className={classes.native}
                   classes={{
-                    root: classnames(classes.nativeRoot, 'native', inputFlagClasses),
+                    root: classNames(classes.nativeRoot, 'native', inputFlagClasses),
                     select: classes.nativeSelect,
                   }}
                   onChange={(e) => this.handleFlagItemClick(e.target.value)}
