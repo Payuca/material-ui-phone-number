@@ -55,7 +55,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "clsx": "^1.0.4",
+    "classnames": "^2.2.6",
     "lodash": "^4.17.14",
     "prop-types": "^15.7.2",
     "react": "^16.8.0",
