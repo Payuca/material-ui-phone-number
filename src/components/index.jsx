@@ -356,7 +356,7 @@ class MaterialUiPhoneNumber extends React.Component {
         freezeSelection = false;
       }
       // let us remove all non numerals from the input
-      formattedNumber = this.formatNumber(inputNumber, newSelectedCountry.format);
+      formattedNumber = this.formatNumber(inputNumber, newSelectedCountry.format ? newSelectedCountry.format : `${'+'.padEnd(newSelectedCountry.dialCode.length, '.')} ... ... ... ... ..`);
     }
 
     let caretPosition = e.target.selectionStart;
@@ -428,7 +428,7 @@ class MaterialUiPhoneNumber extends React.Component {
     const unformattedNumber = formattedNumber.replace(' ', '').replace('(', '').replace(')', '').replace('-', '');
     const newNumber = unformattedNumber.length > 1 ? unformattedNumber.replace(currentSelectedCountry.dialCode, nextSelectedCountry.dialCode) : nextSelectedCountry.dialCode;
 
-    const newFormattedNumber = this.formatNumber(newNumber.replace(/\D/g, ''), nextSelectedCountry.format);
+    const newFormattedNumber = this.formatNumber(newNumber.replace(/\D/g, ''), nextSelectedCountry.format ? nextSelectedCountry.format : `${'+'.padEnd(nextSelectedCountry.dialCode.length, '.')} ... ... ... ... ..`);
 
     this.setState({
       anchorEl: null,
@@ -589,7 +589,7 @@ class MaterialUiPhoneNumber extends React.Component {
     } else {
       inputNumber = inputNumber.replace(/\D/g, '');
       countryGuess = this.guessSelectedCountry(inputNumber.substring(0, 6), onlyCountries, defaultCountry);
-      formattedNumber = this.formatNumber(inputNumber, countryGuess.format);
+      formattedNumber = this.formatNumber(inputNumber, countryGuess.format ? countryGuess.format : `${'+'.padEnd(countryGuess.dialCode.length, '.')} ... ... ... ... ..`);
     }
 
     this.setState({selectedCountry: countryGuess, formattedNumber});
