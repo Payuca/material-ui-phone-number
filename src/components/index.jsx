@@ -427,6 +427,7 @@ class MaterialUiPhoneNumber extends React.Component {
 
     const unformattedNumber = formattedNumber.replace(' ', '').replace('(', '').replace(')', '').replace('-', '');
     const newNumber = unformattedNumber.length > 1 ? unformattedNumber.replace(currentSelectedCountry.dialCode, nextSelectedCountry.dialCode) : nextSelectedCountry.dialCode;
+    console.log(nextSelectedCountry.dialCode);
     console.log(`${'+'.padEnd(nextSelectedCountry.dialCode.length, '.')} ... ... ... ... ..`);
     const newFormattedNumber = this.formatNumber(newNumber.replace(/\D/g, ''), nextSelectedCountry.format ? nextSelectedCountry.format : `${'+'.padEnd(nextSelectedCountry.dialCode.length, '.')} ... ... ... ... ..`);
 
