@@ -113,7 +113,7 @@ class MaterialUiPhoneNumber extends React.Component {
     const formattedNumber = (inputNumber === '' && countryGuess === 0) ? ''
       : this.formatNumber(
         (props.disableCountryCode ? '' : dialCode) + inputNumber.replace(/\D/g, ''),
-        countryGuess.name ? countryGuess.format : '+.. ... ... ...',
+        countryGuess.name ? countryGuess.format : `${'+'.padEnd(dialCode.length, '.')} ... ... ... ... ..`,
       );
 
     this.state = {
@@ -584,7 +584,7 @@ class MaterialUiPhoneNumber extends React.Component {
       const dialCode = countryGuess && !startsWith(inputNumber.replace(/\D/g, ''), countryGuess.dialCode) ? countryGuess.dialCode : '';
       formattedNumber = this.formatNumber(
         (disableCountryCode ? '' : dialCode) + inputNumber.replace(/\D/g, ''),
-        countryGuess ? countryGuess.format : undefined,
+        countryGuess ? countryGuess.format : `${'+'.padEnd(dialCode.length, '.')} ... ... ... ... ..`,
       );
     } else {
       inputNumber = inputNumber.replace(/\D/g, '');
@@ -622,7 +622,7 @@ class MaterialUiPhoneNumber extends React.Component {
                   onClose={() => this.setState({anchorEl: null})}
                   className={classes.native}
                   classes={{
-                    root: classNames(classes.nativeRoot, 'native', inputFlagClasses),
+                    root: classNames(classes.nativeRoot, 'native'),
                     select: classes.nativeSelect,
                   }}
                   onChange={(e) => this.handleFlagItemClick(e.target.value)}

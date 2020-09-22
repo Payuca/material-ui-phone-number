@@ -96,7 +96,7 @@ const rawAllCountries = [
     ['europe', 'european-union'],
     'at',
     '43',
-    '+.. ... ... ...',
+    '+.. ... ... ... ... .',
   ],
   [
     'Azerbaijan',
